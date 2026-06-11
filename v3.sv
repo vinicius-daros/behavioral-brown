@@ -6,12 +6,18 @@ module v3 (carryin, X, Y, S, carryout, overflow); // figure3.28.v (addern)
 	output reg carryout, overflow;
 	reg [n:0] Sum;
 
-	always @(X, Y, carryin)
-	begin
-		Sum = {1'b0, X} + {1'b0, Y} + carryin;
-		S = Sum[n-1:0];
-		carryout = Sum[n];
-		overflow = (X[n-1] & Y[n-1] & ~S[n-1]) | 
-		           (~X[n-1] & ~Y[n-1] & S[n-1]);
-	end
+	// always @(X, Y, carryin)
+	// begin
+	// 	Sum = {1'b0, X} + {1'b0, Y} + carryin;
+	// 	S = Sum[n-1:0];
+	// 	carryout = Sum[n];
+	// 	overflow = (X[n-1] & Y[n-1] & ~S[n-1]) | 
+	// 	           (~X[n-1] & ~Y[n-1] & S[n-1]);
+	// end
+
+	assign Sum = {1'b0, X} + {1'b0, Y} + carryin;
+	assign S = Sum[n-1:0];
+	assign carryout = Sum[n];
+	assign overflow = (X[n-1] & Y[n-1] & ~S[n-1]) | 
+	                  (~X[n-1] & ~Y[n-1] & S[n-1]);
 endmodule
