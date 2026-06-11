@@ -24,5 +24,5 @@ module v2 ( // priority_encoder
              (W[1]) ? 1 :
              (W[0]) ? 0 : 2'bx;
 
-  assign Z = (W == 0) ? 0 : 1;
+  assign Z = |W;
 endmodule

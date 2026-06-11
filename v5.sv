@@ -19,7 +19,6 @@ module v5 (W, En, Y); // figure4.32.v (dec2to4)
 	assign Y = (En == 0) ? 4'b0000 :
 				(W == 0) ? 4'b1000 :
 				(W == 1) ? 4'b0100 :
-				(W == 2) ? 4'b0010 : 
-				(W == 3) ? 4'b0001;
+				(W == 2) ? 4'b0010 : 4'b0001 ;
 
 endmodule

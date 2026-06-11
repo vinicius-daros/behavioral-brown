@@ -13,8 +13,6 @@ module v0 (W, S, f); // figure4.28.v (mux4to1)
 	// 	else if (S == 3)
 	// 		f = W[3];
 
-	assign f = (S == 0) ? W[0] :
-			   (S == 1) ? W[1] :
-			   (S == 2) ? W[2] : W[3];
+	assign f = W[S];
 endmodule
 
