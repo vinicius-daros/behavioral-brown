@@ -2,17 +2,21 @@ module v6 (A, B, AeqB, AgtB, AltB); //figure4.40.v (compare)
 	input [3:0] A, B;
 	output reg AeqB, AgtB, AltB;
 		
-	always @(A, B)
-	begin
-		AeqB = 0;
-		AgtB = 0;
-		AltB = 0;
-		if(A == B)
-			AeqB = 1;
-		else if (A > B)
-			AgtB = 1;
-		else
-			AltB = 1;
-	end
+	// always @(A, B)
+	// begin
+	// 	AeqB = 0;
+	// 	AgtB = 0;
+	// 	AltB = 0;
+	// 	if(A == B)
+	// 		AeqB = 1;
+	// 	else if (A > B)
+	// 		AgtB = 1;
+	// 	else
+	// 		AltB = 1;
+	// end
+
+	assign AeqB = (A == B) ? 1 : 0;
+	assign AgtB = (A > B) ? 1 : 0;
+	assign AltB = (A < B) ? 1 : 0;
 				
 endmodule

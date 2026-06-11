@@ -1,18 +1,25 @@
 module v5 (W, En, Y); // figure4.32.v (dec2to4)
 	input [1:0] W;
 	input En;
-	output reg [0:3] Y;
+	output [0:3] Y;
 	
-	always @(W, En)
-	begin
-		if (En == 0)
-			Y = 4'b0000;
-		else
-			case (W)
-				0: Y = 4'b1000;
-				1: Y = 4'b0100;
-				2: Y = 4'b0010;
-				3: Y = 4'b0001;
-			endcase
-	end
+	// always @(W, En)
+	// begin
+	// 	if (En == 0)
+	// 		Y = 4'b0000;
+	// 	else
+	// 		case (W)
+	// 			0: Y = 4'b1000;
+	// 			1: Y = 4'b0100;
+	// 			2: Y = 4'b0010;
+	// 			3: Y = 4'b0001;
+	// 		endcase
+	// end
+
+	assign Y = (En == 0) ? 4'b0000 :
+				(W == 0) ? 4'b1000 :
+				(W == 1) ? 4'b0100 :
+				(W == 2) ? 4'b0010 : 
+				(W == 3) ? 4'b0001;
+
 endmodule

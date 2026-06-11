@@ -4,19 +4,21 @@ module v7 (W, Shift, Y , k); //figure4.54.v (shifter)
 	output reg [3:0] Y;
 	output reg k;
 	
-	always @(W, Shift)
-	begin
-		if (Shift)
-		begin
-			Y = W >> 1;
-			k = W[0];
-		end
-		else
-		begin
-			Y = W;
-			k = 0;
-		end
-	end
+	// always @(W, Shift)
+	// begin
+	// 	if (Shift)
+	// 	begin
+	// 		Y = W >> 1;
+	// 		k = W[0];
+	// 	end
+	// 	else
+	// 	begin
+	// 		Y = W;
+	// 		k = 0;
+	// 	end
+	// end
 
+	assign Y = Shift ? (W >> 1) : W;
+	assign k = Shift ? W[0] : 0;
 endmodule
 
